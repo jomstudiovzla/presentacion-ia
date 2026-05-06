@@ -79,4 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // Touch swipe navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        // Require a minimum swipe distance to avoid accidental swipes
+        const swipeThreshold = 50; 
+        
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swiped left
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+        
+        if (touchEndX > touchStartX + swipeThreshold) {
+            // Swiped right
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+    }
 });

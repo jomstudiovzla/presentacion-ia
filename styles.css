@@ -21,6 +21,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -72,6 +73,7 @@ body {
     position: relative;
     width: 100%;
     height: calc(100vh - 160px);
+    height: calc(100dvh - 160px);
     overflow: hidden;
 }
 
@@ -79,7 +81,8 @@ body {
     position: absolute;
     width: 90%;
     max-width: 900px;
-    max-height: calc(100vh - 180px); /* Limit height */
+    max-height: calc(100vh - 180px);
+    max-height: calc(100dvh - 180px);
     display: flex;
     flex-direction: column;
     opacity: 0;
@@ -105,6 +108,7 @@ body {
     box-shadow: var(--shadow-heavy);
     position: relative;
     overflow-y: auto; /* Enable scrolling for long content */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     width: 100%;
 }
 
@@ -462,7 +466,8 @@ h2 {
     .header-subtitle { display: none; }
     
     .presentation-container {
-        height: calc(100vh - 140px); /* Adjust for header/controls */
+        height: calc(100vh - 140px);
+        height: calc(100dvh - 140px);
         align-items: flex-start;
         padding-top: 15px;
     }
@@ -470,6 +475,7 @@ h2 {
     .slide {
         width: 95%;
         max-height: calc(100vh - 160px);
+        max-height: calc(100dvh - 160px);
     }
     
     .content-panel { 
